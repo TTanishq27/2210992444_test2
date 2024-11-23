@@ -1,5 +1,5 @@
 //
-//  DetailTableViewController.swift
+//  AddTableViewController.swift
 //  2210992444_test2
 //
 //  Created by student-2 on 23/11/24.
@@ -7,44 +7,28 @@
 
 import UIKit
 
-class DetailTableViewController: UITableViewController {
-    
-    
-    @IBOutlet weak var fatsLabel: UILabel!
-    @IBOutlet weak var proteinLabel: UILabel!
-    @IBOutlet weak var carbsLabel: UILabel!
-    @IBOutlet weak var instructionLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    
-    var recipe: String?
-    var section: NewModel?
-    
+class AddTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = UIImage(named: "image1")
-        fatsLabel.text = section!.info[recipe ?? "None"]?.fats
-        proteinLabel.text = section!.info[recipe ?? "None"]?.proteins
-        carbsLabel.text = section!.info[recipe ?? "None"]?.carbs
-        instructionLabel.text = section!.instructions[recipe ?? "None"]!
     }
 
-    
-    @IBAction func shareClicked(_ sender: Any) {
-        guard let img = imageView.image,
-        let fat = fatsLabel.text,
-        let protein = proteinLabel.text,
-        let carbs = carbsLabel.text
-        else { return }
-        let activity = UIActivityViewController(activityItems: [img, fat, protein, carbs], applicationActivities: nil)
-        present(activity, animated: true)
-    }
-    
-    
     // MARK: - Table view data source
 
+   
+    @IBAction func clicked(_ sender: Any) {
+        dismiss(animated: true)
+    }
     
-    
-    
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
